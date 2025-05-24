@@ -22,7 +22,7 @@ export default function Hero() {
             I am a&nbsp;
             <Typewriter
               options={{
-                strings: ["Full Stack Web Developer", "Python Developer", "AI Enthusiast"],
+                strings: ["Full Stack Web Developer", "Python Developer"],
                 autoStart: true,
                 loop: true,
                 cursor: "|",
