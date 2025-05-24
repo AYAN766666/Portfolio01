@@ -1,76 +1,81 @@
-import Image from "next/image" 
-import about from '../../../../public/ayan.jpg'
+"use client";
 
-export default async function About (){ 
-  
-return(
+import Image from "next/image";
+import about from '../../../../public/ayan.jpg';
+import { useEffect, useState } from "react";
 
-    <div id="about">
+export default function About() {
+  const [visible, setVisible] = useState(false);
 
-<section className="text-gray-600 body-font      ">
-  <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 ">
-      <Image
-        className="object-cover object-center rounded mx-auto  w-[300px] h-[400px]     "
-        alt="hero"
-        src={about} 
-        width={300} 
-        height={500}
-      />
-    </div>
-    <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-        About Me
-        <br className="hidden lg:inline-block" />
-        
-      </h1> 
-      
-      
-      <p className="mb-5 leading-relaxed">
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
-      As a passionate front-end developer, I specialize in creating fast, responsive, and modern websites using Next.js, Tailwind CSS, and Sanity CMS. I focus on delivering clean UI, smooth user experience, and scalable structures — perfect for individuals, startups, and small businesses.
+  return (
+    <section
+      id="about"
+      className="min-h-screen bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center px-6 py-20"
+    >
+      <div
+        className={`max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-12
+          transition-opacity duration-1000 ease-out
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      >
+        {/* Image with frame and shadow */}
+        <div className="relative group rounded-3xl shadow-2xl overflow-hidden border-4 border-purple-600 w-72 h-96 md:w-80 md:h-[420px]">
+          <Image
+            src={about}
+            alt="About Me"
+            className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-700"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 rounded-3xl pointer-events-none"></div>
+        </div>
 
-On the scripting side  I build small Python-based projects that help automate simple tasks, demonstrate logical thinking, and enhance productivity. While I dont work with full-scale backend systems, I love using Python for creative, functional mini-tools.
+        {/* Text content with glassmorphism */}
+        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-10 max-w-xl text-white shadow-lg">
+          <h2 className="text-5xl font-extrabold mb-6 tracking-wide drop-shadow-lg text-purple-300">
+            About Me
+          </h2>
 
-My Expertise:
-Front-end development with Next.js + Tailwind CSS
+          <p className="mb-6 leading-relaxed text-gray-300">
+            I am a passionate <strong>Full Stack Developer</strong> skilled in crafting
+            high-performance, scalable web applications using <strong>Next.js</strong>,
+            <strong> Tailwind CSS</strong>, and <strong>Sanity CMS</strong>. With a focus on
+            clean, intuitive design and seamless user experiences, I build websites that
+            not only look stunning but also perform flawlessly across devices.
+          </p>
 
-CMS integration using Sanity for easy content management
+          <p className="mb-6 leading-relaxed text-gray-300">
+            In addition to front-end and back-end development, I am exploring the dynamic
+            realm of <strong>Artificial Intelligence</strong>, integrating smart features and
+            automation to make applications more intelligent and user-centric.
+          </p>
 
-Python scripting for small utilities and automations
+          <p className="mb-6 leading-relaxed text-gray-300">
+            I also create innovative Python scripts for automation and productivity,
+            demonstrating my problem-solving mindset and passion for leveraging technology
+            to simplify complex tasks.
+          </p>
 
-Mobile-first, responsive, and fast-loading designs
+          <h3 className="text-purple-400 font-semibold mb-3 text-xl">Core Skills:</h3>
+          <ul className="list-disc list-inside space-y-2 text-gray-300 mb-8">
+            <li>Full Stack Development with Next.js, Tailwind CSS & Node.js</li>
+            <li>CMS Integration via Sanity for dynamic content management</li>
+            <li>Python scripting for automation and AI-powered tools</li>
+            <li>Mobile-first, fast-loading, and responsive designs</li>
+            <li>Clear communication & reliable project delivery</li>
+          </ul>
 
-Reliable and simple project delivery with clear communication
-
-Looking for a clean website with easy-to-manage content and a developer who understands both design and logic? Let’s connect and turn your vision into a working website!
-      
-      </p>
-      <div className="flex justify-center"> 
-        <a href="w-8ben.pdf"   >
-        <button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
-          View CV
-        </button>
-        </a>
-        
+          <a href="w-8ben.pdf" target="_blank" rel="noopener noreferrer">
+            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-300">
+              View My CV
+            </button>
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-)
-} 

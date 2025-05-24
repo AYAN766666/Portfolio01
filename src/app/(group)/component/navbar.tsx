@@ -1,42 +1,104 @@
-"use client";
+
+"use client"; 
+
+
 
 import Image from "next/image";
-import image from '../../../../public/lobo.jpg';
 import Link from "next/link";
 import { BiCloudDownload } from "react-icons/bi";
+import { MenuIcon } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import image from "../../../../public/lobo.jpg";
 
 export default function Navbar() {
+  const navItems = ["Home", "About", "Skills", "Projects", "Contact"];
+
   return (
-    <div className="bg-white z-50 sticky top-0">
-      <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
-          <div className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <Image
-              className="rounded-full"
-              src={image}
-              alt="Logo"
-              height={45}
-              width={45}
-            />
-            <span className="ml-3 text-xl">LOVE CODING</span>
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] bg-opacity-90 backdrop-blur-xl shadow-xl border-b border-white/10">
+ 
+      <header className="text-white font-sans">
+        <div className="container mx-auto flex flex-wrap p-4 items-center justify-between">
+
+          {/* Logo */}
+          <div className="flex items-center space-x-3 group">
+            <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-xl rounded-full p-1 shadow-[inset_0_0_10px_rgba(255,255,255,0.2)] transition-transform group-hover:rotate-12 group-hover:scale-105 duration-300">
+              <Image
+                src={image}
+                alt="Logo"
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+            </div>
+            <span className="text-3xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 drop-shadow-lg">
+              LOVE CODING
+            </span>
           </div>
 
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link href="/" className="mr-5 hover:text-blue-600">Home</Link>
-            <Link href="#about" className="mr-5 hover:text-blue-600">About</Link>
-            <Link href="#skills" className="mr-5 hover:text-blue-600">Skills</Link>
-            <Link href="#project" className="mr-5 hover:text-blue-600">Projects</Link>
-            <Link href="#contact" className="mr-5 hover:text-blue-600">Contact</Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex gap-6 text-lg font-medium">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+                className="relative group transition-all duration-300"
+              >
+                <span className="text-white/90 group-hover:text-cyan-300 transition">
+                  {item}
+                </span>
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            ))}
           </nav>
 
-          <a href="#" download>
-            <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-              Coming Soon
-              <BiCloudDownload className="text-xl ml-2" />
-            </button>
-          </a>
+          {/* Resume Button */}
+          <div className="hidden md:block">
+            <a href="#" download>
+              <button className="relative inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-pink-500/50 animate-pulse">
+                Coming Soon
+                <BiCloudDownload className="text-xl" />
+              </button>
+            </a>
+          </div>
+
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+  <Sheet>
+    <SheetTrigger asChild>
+      <button className="text-white hover:text-cyan-400">
+        <MenuIcon className="h-6 w-6" />
+      </button>
+    </SheetTrigger>
+
+    <SheetContent
+      side="right"
+      className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] backdrop-blur-md border-l border-white/10 text-white shadow-xl"
+    >
+      <div className="flex flex-col gap-6 mt-10">
+        {navItems.map((item, index) => (
+          <Link
+            key={index}
+            href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+            className="text-lg font-medium hover:text-cyan-300 transition"
+          >
+            {item}
+          </Link>
+        ))}
+        <a href="#" download>
+          <button className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-pink-500/50">
+            Coming Soon
+            <BiCloudDownload className="text-xl" />
+          </button>
+        </a>
+      </div>
+    </SheetContent>
+  </Sheet>
+</div>
+
+          
         </div>
       </header>
     </div>
   );
 }
+

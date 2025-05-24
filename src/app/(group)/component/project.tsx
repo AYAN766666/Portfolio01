@@ -1,106 +1,72 @@
+
+
+// app/components/Project.tsx
+
 import Link from "next/link";
-import Image from "next/image"; 
+import Image from "next/image";
 
-import port from '../../../../public/pic2.jpg' 
-import skill from '../../../../public/pic.jpg'
-export default function Project (){
-    return(
-        <div   id="project"    >
-<section className="text-gray-600 body-font">
-  <div className="container px-5 py-24 mx-auto">
-    <div className="flex flex-col text-center w-full mb-20">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-        My project
-      </h1>
-      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-       
-      my frontend development skills, I built a modern and responsive user interface with smooth performance and clean design. Additionally, I integrated vanilla Python to handle background logic and automation tasks, showcasing my ability to blend creative frontend design with practical Python-based functionality. This project reflects my expertise in building high quality, efficient, and user-focused web applications.
-      
-      </p>
+export default function Project() {
+  return (
+    <div id="project" className="bg-gradient-to-tr from-purple-900 via-indigo-900 to-black py-24 px-5 md:px-20 min-h-screen">
+      <section className="container mx-auto text-gray-300">
+        <div className="flex flex-col text-center w-full mb-20">
+          <h1 className="sm:text-4xl text-3xl font-extrabold mb-4 text-white tracking-wide">
+            My Projects
+          </h1>
+          <p className="max-w-3xl mx-auto leading-relaxed text-indigo-300 text-lg">
+            Showcasing my frontend and backend skills through modern design, smooth performance, and real-world functionality.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Project Card Component */}
+          {[
+            {
+              title: "Python Number Table App",
+              description: "Type a number, get its table instantly. Powered by Python and Streamlit.",
+              image: "/pic2.jpg",
+              tag: "Hackathon Project",
+              link: "https://generate-table-python-e6ryfjbjsbx5v9ach4r4ue.streamlit.app/",
+            },
+            {
+              title: "E-Commerce Website",
+              description: "A modern e-commerce store built with clean UI and focus on performance.",
+              image: "/pic.jpg",
+              tag: "Hackathon",
+              link: "https://hackathon-templete-5.netlify.app/",
+            },
+          ].map((project, idx) => (
+            <div
+              key={idx}
+              className="bg-gradient-to-br from-indigo-800 via-purple-900 to-pink-900 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500"
+            >
+              <div className="relative w-full h-64 md:h-72">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-center transition-all duration-500 group-hover:brightness-110"
+                />
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-t-3xl" />
+              </div>
+
+              <div className="p-6 md:p-8 space-y-3">
+                <p className="text-sm text-indigo-300 font-medium">{project.tag}</p>
+                <h2 className="text-xl md:text-2xl font-bold text-white">{project.title}</h2>
+                <p className="text-gray-300 text-sm">{project.description}</p>
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-full shadow-md transition"
+                >
+                  View Project
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
-    <div className="flex flex-wrap -m-5   -mt-9   "> 
-        {/*project*/}
-      <div className="lg:w-1/2 sm:w-1/1 p-4 cursor-pointer    "      >
-        <div className="flex relative">
-          <Image
-            alt="gallery"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            src={port}
-          />
-          <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 className="tracking-widest text-sm title-font font-medium text-blue-500 mb-1">
-              Hachathon project
-            </h2>
-            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-              Python
-            </h1>
-            <p className="leading-relaxed line-clamp-2">
-              
-            Welcome to Number Tabile App
-🔠 Type a Number, Get the Tale
-            
-            </p> 
-            <Link target="_blank" href='   https://generate-table-python-e6ryfjbjsbx5v9ach4r4ue.streamlit.app/ '    >
-            <p className="leading-relaxed  text-blue-500 hover:underline     ">View Project..</p> 
-            </Link> 
-
-          </div>
-        </div>
-      
-      
-        
-        
-      
-      
-        </div>
-      
-      
-        
-        
-      
-      <div className="lg:w-1/3 sm:w-1/2 p-4 cursor-pointer     "      >
-        <div className="flex relative">
-          <Image
-            alt="gallery"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            src={skill}
-          />
-          <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 className="tracking-widest text-sm title-font font-medium text-blue-500 mb-1">
-              Hackathon
-            </h2>
-            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-              Pratic
-            </h1>
-            <p className="leading-relaxed   line-clamp-2">
-              
-            
-            E-Commerce Website
-            
-            </p> 
-            <Link target="_blank" href='       https://hackathon-templete-5.netlify.app/      '    >
-            <p className="leading-relaxed  text-blue-500 hover:underline     ">View Project..</p> 
-            </Link> 
-            
-          </div>
-      
-      </div>
-        
-        
-      
-        </div>
-      
-      
-        
-        
-      
-    </div>
-  </div>
-</section>
-
-
-
-
-        </div>
-    )
+  );
 }
