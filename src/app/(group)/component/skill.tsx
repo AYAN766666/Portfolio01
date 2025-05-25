@@ -1,7 +1,8 @@
 
 "use client";
 import { AiOutlineEdit } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
+import {motion} from "framer-motion";
 
 const skillsData = [
   { name: "Next.js", level: 70 },
@@ -27,8 +28,21 @@ export default function Skills() {
   }, [visibleCount]);
 
   return (
-    <div id="skills">
+    <div id="skills">  
+   
+   
+
       <section className="text-gray-700 body-font bg-gradient-to-tr from-purple-900 via-indigo-900 to-black py-24">
+       
+       {/* Map & Info Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          
+        >
+       
+       
         <div className="container px-5 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h2 className="text-xs text-indigo-400 tracking-widest font-semibold mb-2">
@@ -40,11 +54,22 @@ export default function Skills() {
             <p className="mt-4 max-w-2xl mx-auto text-indigo-300 text-lg">
               Here are some of the technologies and languages I excel in, with my proficiency levels.
             </p>
-          </div>
+          </div> 
 
-          <div className="flex flex-wrap justify-center -m-6">
+         
+         
+
+          
+
+
+
+
+
+          <div className="flex flex-wrap justify-center -m-6"> 
+
             {skillsData.map((skill, index) => (
-              <div
+              <div 
+
                 key={skill.name}
                 className={`p-6 w-full md:w-1/3 transition-all duration-700 ease-out
                   ${
@@ -52,8 +77,10 @@ export default function Skills() {
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
                   }
-                `}
-              >
+                `} 
+                
+              > 
+              
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:shadow-2xl transition-shadow duration-500 shadow-lg border border-indigo-700">
                   <div className="flex items-center mb-5">
                     <div className="w-10 h-10 mr-4 flex items-center justify-center rounded-full bg-indigo-600 text-white text-xl font-bold drop-shadow-lg">
@@ -72,9 +99,12 @@ export default function Skills() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-    </div>
+        </div> 
+        </motion.div>
+      </section>  
+
+      </div>
+    
   );
 }
 

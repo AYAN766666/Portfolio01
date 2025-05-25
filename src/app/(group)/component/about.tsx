@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import about from '../../../../public/ayan.jpg';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
+import { motion } from "framer-motion";
 
 export default function About() {
   const [visible, setVisible] = useState(false);
@@ -12,9 +13,18 @@ export default function About() {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <section
-      id="about"
+  return ( 
+    <>  
+<motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+      >
+
+    <section 
+  
+      id="about" 
+
       className="min-h-screen bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center px-6 py-20"
     >
       <div
@@ -75,7 +85,9 @@ export default function About() {
           </a>
         </div>
       </div>
-    </section>
+    </section>  
+    </motion.div>
+    </>
   );
 }
 

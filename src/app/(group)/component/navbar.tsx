@@ -8,14 +8,22 @@ import Link from "next/link";
 import { BiCloudDownload } from "react-icons/bi";
 import { MenuIcon } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import image from "../../../../public/lobo.jpg";
+import image from "../../../../public/lobo.jpg"; 
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const navItems = ["Home", "About", "Skills", "Projects", "Contact"];
 
   return (
     <div className="sticky top-0 z-50 bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] bg-opacity-90 backdrop-blur-xl shadow-xl border-b border-white/10">
- 
+        
+<motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+      >
+
+
       <header className="text-white font-sans">
         <div className="container mx-auto flex flex-wrap p-4 items-center justify-between">
 
@@ -62,16 +70,28 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          <div className="md:hidden"> 
+<motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+>
+
+
   <Sheet>
-    <SheetTrigger asChild>
+    <SheetTrigger asChild> 
+     
+     
+
       <button className="text-white hover:text-cyan-400">
         <MenuIcon className="h-6 w-6" />
       </button>
     </SheetTrigger>
 
     <SheetContent
-      side="right"
+      side="right" 
+     
+      
       className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] backdrop-blur-md border-l border-white/10 text-white shadow-xl"
     >
       <div className="flex flex-col gap-6 mt-10">
@@ -89,15 +109,19 @@ export default function Navbar() {
             Coming Soon
             <BiCloudDownload className="text-xl" />
           </button>
-        </a>
-      </div>
+        </a> 
+        
+      </div> 
+      
     </SheetContent>
-  </Sheet>
+  </Sheet> 
+  </motion.div>
 </div>
 
           
         </div>
-      </header>
+      </header> 
+      </motion.div>
     </div>
   );
 }

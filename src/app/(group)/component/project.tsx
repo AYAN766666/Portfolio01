@@ -1,13 +1,24 @@
-
+"use client";
 
 // app/components/Project.tsx
 
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/image"; 
+import {motion} from "framer-motion";
 
 export default function Project() {
-  return (
-    <div id="project" className="bg-gradient-to-tr from-purple-900 via-indigo-900 to-black py-24 px-5 md:px-20 min-h-screen">
+  return (  
+    <>
+
+<motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+
+        >
+
+
+    <div id="projects" className="bg-gradient-to-tr from-purple-900 via-indigo-900 to-black py-24 px-5 md:px-20 min-h-screen">
       <section className="container mx-auto text-gray-300">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-4xl text-3xl font-extrabold mb-4 text-white tracking-wide">
@@ -67,6 +78,8 @@ export default function Project() {
           ))}
         </div>
       </section>
-    </div>
+    </div> 
+    </motion.div> 
+    </>
   );
 }

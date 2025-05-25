@@ -4,12 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import pic from "../../../../public/ayan.jpg";
+import { motion } from "framer-motion";
+export default function Hero() { 
 
-export default function Hero() {
   const description =
     "Delivering Fast, Secure & Scalable Websites | Next.js, Sanity & Tailwind CSS Expert | Modern Python & AI Solutions | Full Stack Developer Committed to Excellence | Free Consultation";
 
-  return (
+  return ( 
+    <>
+<motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
     <section className="relative bg-gradient-to-tr from-slate-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
       {/* Background glows */}
       <div className="absolute -top-20 -left-20 w-[400px] h-[400px] bg-gradient-to-br from-pink-600 via-purple-700 to-cyan-500 rounded-full opacity-30 blur-3xl animate-animateGlow"></div>
@@ -79,7 +86,9 @@ export default function Hero() {
           animation-delay: 1s;
         }
       `}</style>
-    </section>
+    </section> 
+    </motion.div>
+    </>
   );
 }
 
