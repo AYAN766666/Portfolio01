@@ -70,7 +70,7 @@ export default function About() {
           </p>
 
           <p className="mb-6 leading-relaxed text-gray-300">
-            Let's collaborate to grow your business with cutting-edge web technology and AI.
+            Let&apos;s collaborate to grow your business with cutting-edge web technology and AI.
           </p>
 
           <a href="w-8ben.pdf" target="_blank" rel="noopener noreferrer">
