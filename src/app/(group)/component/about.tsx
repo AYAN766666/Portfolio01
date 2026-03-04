@@ -50,33 +50,28 @@ export default function About() {
           </h2>
 
           <p className="mb-6 leading-relaxed text-gray-300">
-            I am a passionate <strong>Full Stack Developer</strong> skilled in crafting
-            high-performance, scalable web applications using <strong>Next.js</strong>,
-            <strong> Tailwind CSS</strong>, and <strong>Sanity CMS</strong>. With a focus on
-            clean, intuitive design and seamless user experiences, I build websites that
-            not only look stunning but also perform flawlessly across devices.
+            I am a Full-Stack AI Developer with expertise in Next.js, TypeScript, Python, and OpenAI, specializing in building secure, scalable, and production-ready websites and AI systems.
           </p>
 
           <p className="mb-6 leading-relaxed text-gray-300">
-            In addition to front-end and back-end development, I am exploring the dynamic
-            realm of <strong>Artificial Intelligence</strong>, integrating smart features and
-            automation to make applications more intelligent and user-centric.
+            I help businesses and startups launch high-performance, modern websites tailored to their brand and goals. I also implement custom AI agents to automate processes and boost operational efficiency.
           </p>
 
           <p className="mb-6 leading-relaxed text-gray-300">
-            I also create innovative Python scripts for automation and productivity,
-            demonstrating my problem-solving mindset and passion for leveraging technology
-            to simplify complex tasks.
+            My mission is to transform your business ideas into practical, revenue-generating websites and intelligent solutions.
           </p>
 
-          <h3 className="text-purple-400 font-semibold mb-3 text-xl">Core Skills:</h3>
-          <ul className="list-disc list-inside space-y-2 text-gray-300 mb-8">
-            <li>Full Stack Development with Next.js, Tailwind CSS & Node.js</li>
-            <li>CMS Integration via Sanity for dynamic content management</li>
-            <li>Python scripting for automation and AI-powered tools</li>
-            <li>Mobile-first, fast-loading, and responsive designs</li>
-            <li>Clear communication & reliable project delivery</li>
-          </ul>
+          <p className="mb-6 leading-relaxed text-gray-300">
+            I offer FREE Web & AI consultations to understand your requirements, suggest improvements, and create a roadmap that perfectly aligns with your business objectives.
+          </p>
+
+          <p className="mb-6 leading-relaxed text-gray-300">
+            Whether you need a professional business website or an intelligent AI agent, I deliver solutions that are efficient, reliable, and production-ready.
+          </p>
+
+          <p className="mb-6 leading-relaxed text-gray-300">
+            Let's collaborate to grow your business with cutting-edge web technology and AI.
+          </p>
 
           <a href="w-8ben.pdf" target="_blank" rel="noopener noreferrer">
             <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-300">

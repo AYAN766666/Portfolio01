@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function Hero() { 
 
   const description =
-    "Delivering Fast, Secure & Scalable Websites | Next.js, Sanity & Tailwind CSS Expert | Modern Python & AI Solutions | Full Stack Developer Committed to Excellence | Free Consultation";
+    "Want to Automate Your Business with Custom AI Agents or Launch a High-Performance Website? FREE AI & Web Consultation |  AI Developer (Next.js TypeScript Python OpenAI ) | Secure, Scalable & Production-Ready Solutions";
 
   return ( 
     <>
@@ -29,7 +29,7 @@ export default function Hero() {
             I am a&nbsp;
             <Typewriter
               options={{
-                strings: ["Full Stack Web Developer", "Python Developer"],
+                strings: ["Full Stack Web Developer", "Agent AI Developer", "AI Enthusiast"],
                 autoStart: true,
                 loop: true,
                 cursor: "|",

@@ -40,11 +40,11 @@ export default function Project() {
               link: "https://generate-table-python-e6ryfjbjsbx5v9ach4r4ue.streamlit.app/",
             },
             {
-              title: "E-Commerce Website",
-              description: "A modern e-commerce store built with clean UI and focus on performance.",
+              title: "Todo App",
+              description: "A full-stack todo application with modern UI and seamless performance.",
               image: "/pic.jpg",
-              tag: "Hackathon",
-              link: "https://hackathon-templete-5.netlify.app/",
+              tag: "Full Stack Project",
+              link: "https://full-stack-todo-web-two.vercel.app/signup",
             },
           ].map((project, idx) => (
             <div
