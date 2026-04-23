@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export default function Hero() { 
 
   const description =
-    "I’m an AI Agent Specialist and Full-Stack Web Developer. I help businesses automate workflows, reduce manual work, and generate more leads by building custom AI solutions and high-performance websites.";
+    "I help businesses automate workflows, reduce manual work, and generate more leads by building custom AI solutions and high-performance websites.";
 
   return ( 
     <>
