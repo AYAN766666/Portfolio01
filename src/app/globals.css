@@ -117,5 +117,203 @@
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.35);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050810;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #22d3ee, #8b5cf6);
+    border-radius: 999px;
+    border: 2px solid #050810;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #67e8f9, #a78bfa);
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .text-glow {
+    text-shadow: 0 0 18px rgba(34, 211, 238, 0.55);
+  }
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .bg-grid-fade {
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .animate-gradient {
+    background-size: 220% 220%;
+    animation: gradientMove 7s ease infinite;
+  }
+  .animate-float {
+    animation: floaty 6s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: floaty 9s ease-in-out infinite;
+  }
+  .animate-shimmer {
+    background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
+    background-size: 200% 100%;
+    animation: shimmer 2.6s linear infinite;
+  }
+  .animate-marquee {
+    animation: marquee 32s linear infinite;
+  }
+  .animate-spin-slow {
+    animation: spin 14s linear infinite;
+  }
+  .animate-spin-slower {
+    animation: spin 26s linear infinite reverse;
+  }
+  .animate-scan {
+    animation: scan 4s linear infinite;
+  }
+  .animate-aurora {
+    animation: auroraFloat 20s ease-in-out infinite, auroraPulse 9s ease-in-out infinite;
+  }
+  .animate-aurora-slow {
+    animation: auroraFloat 30s ease-in-out infinite reverse, auroraPulse 13s ease-in-out infinite;
+  }
+  .animate-gyro {
+    animation: gyroSpin 14s linear infinite;
+  }
+  .animate-gyro-rev {
+    animation: gyroSpin 20s linear infinite reverse;
+  }
+  .animate-gyro-fast {
+    animation: gyroSpin 9s linear infinite;
+  }
+  .text-shine {
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+  }
+  .typewriter-shine .Typewriter__wrapper {
+    background-image: linear-gradient(90deg, #c6ff2e, #19f0d0, #ff2ea6, #19f0d0, #c6ff2e);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 5s linear infinite;
+  }
+  .typewriter-shine .Typewriter__cursor {
+    color: #c6ff2e;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes auroraFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(60px, -40px, 0) scale(1.15);
+  }
+  66% {
+    transform: translate3d(-40px, 50px, 0) scale(0.92);
+  }
+}
+
+@keyframes auroraPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes gyroSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
   }
 }

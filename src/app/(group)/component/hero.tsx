@@ -5,48 +5,53 @@ import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import pic from "../../../../public/gemini-profile.png";
 import { motion } from "framer-motion";
+import Aurora from "./aurora";
+import GyroCore from "./gyro-core";
+import DecodeText from "./decode-text";
 
-export default function Hero() { 
+const marqueeSkills = ["Next.js", "AI Agents", "Docker", "TypeScript", "Python", "Tailwind", "OpenAI"];
 
+const stats = [
+  { value: "5+", label: "Shipped Projects" },
+  { value: "25+", label: "AI Agents Built" },
+  { value: "100%", label: "Code Integrity" },
+];
+
+export default function Hero() {
   const description =
-    "I help businesses automate workflows, reduce manual work, and generate more leads by building custom AI solutions and high-performance websites.";
+    "I help businesses automate workflows, reduce manual work, and generate more leads by building custom AI agents and high-performance websites.";
 
-  return ( 
-    <>
-<motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
-    <section className="relative bg-[#0b0f1a] text-white overflow-hidden min-h-[90vh] flex items-center">
-      {/* Dynamic Background Effects */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] animate-pulse delay-700"></div>
-        <div className="absolute -bottom-40 left-1/4 w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[80px] animate-pulse delay-1000"></div>
-      </div>
+  return (
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#050810] text-white">
+      <Aurora intensity="bold" />
+      <div className="absolute inset-0 bg-grid bg-grid-fade pointer-events-none"></div>
 
-      <div className="container mx-auto px-5 py-20 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-        {/* Text Content */}
-        <div className="md:w-3/5 flex flex-col items-center md:items-start text-center md:text-left">
-          <motion.h2 
+      <div className="container relative z-10 mx-auto flex flex-col items-center justify-between gap-14 px-5 py-20 md:flex-row">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex w-full flex-col items-center text-center md:w-3/5 md:items-start md:text-left"
+        >
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-cyan-400 font-mono tracking-widest text-lg mb-4"
+            transition={{ delay: 0.3 }}
+            className="mb-4 inline-flex items-center gap-3 rounded-full border border-[#c6ff2e]/30 bg-[#c6ff2e]/5 px-4 py-1.5 font-mono text-xs tracking-[0.25em] text-[#c6ff2e]"
           >
-            THE FUTURE OF AI IS HERE
-          </motion.h2>
-          
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6 text-white">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c6ff2e] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#c6ff2e]"></span>
+            </span>
+            <DecodeText text="THE FUTURE OF AI IS HERE" />
+          </motion.div>
+
+          <h1 className="mb-6 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
             I am <br />
-            <span className="text-cyan-400">
+            <span className="typewriter-shine">
               <Typewriter
                 options={{
-                  strings: [
-                    "A Web Developer",
-                    "An AI Automation Expert",
-                  ],
+                  strings: ["an AI Agent Specialist", "a Full-Stack Developer"],
                   autoStart: true,
                   loop: true,
                   cursor: "|",
@@ -56,87 +61,77 @@ export default function Hero() {
               />
             </span>
           </h1>
-          
-          <div className="w-32 h-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full mb-8"></div>
 
-          <p className="max-w-xl text-gray-400 text-lg md:text-xl font-medium mb-10 leading-relaxed">
+          <div className="mb-8 h-2 w-32 rounded-full bg-gradient-to-r from-[#c6ff2e] via-[#19f0d0] to-[#ff2ea6]"></div>
+
+          <p className="mb-10 max-w-xl text-lg font-medium leading-relaxed text-gray-400 md:text-xl">
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
             <Link href="#contact">
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all"
+                className="w-full rounded-xl bg-gradient-to-r from-[#c6ff2e] to-[#19f0d0] px-10 py-4 font-bold text-black shadow-[0_0_35px_rgba(198,255,46,0.4)] transition-all sm:w-auto"
               >
                 Let&apos;s Build Together
               </motion.button>
             </Link>
-            <Link href="#projects">
-              <motion.button 
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+            <Link href="#demo">
+              <motion.button
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 border-2 border-cyan-500/50 rounded-xl text-white font-bold backdrop-blur-sm transition-all"
+                className="w-full rounded-xl border-2 border-[#19f0d0]/50 px-10 py-4 font-bold text-white backdrop-blur-sm transition-all sm:w-auto"
               >
-                View Works
+                Watch AI Agent
               </motion.button>
             </Link>
           </div>
-        </div>
 
-        {/* Image with Advanced Effects */}
-        <div className="md:w-2/5 flex justify-center md:justify-end">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, type: "spring", stiffness: 100 }}
-            className="relative"
-          >
-            {/* Outer Glow Circles */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-full opacity-30 blur-2xl animate-spin-slow"></div>
-            
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-[40px] overflow-hidden shadow-2xl ring-8 ring-white/5 group">
-              <Image
-                src={pic}
-                alt="Mohammad Ayan - AI Developer"
-                fill
-                style={{ objectFit: "cover" }}
-                priority
-                className="transition-all duration-700 ease-in-out group-hover:scale-110"
-              />
-              {/* Futuristic Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Scanner Line Animation */}
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-cyan-400 shadow-[0_0_15px_#22d3ee] animate-scan z-20"></div>
-            </div>
-          </motion.div>
-        </div>
+          <div className="mt-12 flex flex-wrap items-center gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col">
+                <span className="text-3xl font-black text-white">{stat.value}</span>
+                <span className="font-mono text-xs uppercase tracking-tighter text-gray-500">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, type: "spring", stiffness: 90 }}
+          className="flex w-full justify-center md:w-2/5 md:justify-end"
+        >
+          <GyroCore>
+            <Image
+              src={pic}
+              alt="Mohammad Ayan - AI Agent Specialist"
+              fill
+              sizes="(max-width: 768px) 336px, 432px"
+              style={{ objectFit: "cover" }}
+              priority
+              className="object-cover"
+            />
+          </GyroCore>
+        </motion.div>
       </div>
 
-      <style jsx>{`
-        @keyframes scan {
-          0% { top: 0; }
-          100% { top: 100%; }
-        }
-        .animate-scan {
-          animation: scan 4s linear infinite;
-        }
-        .animate-spin-slow {
-          animation: spin 8s linear infinite;
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </section> 
-    </motion.div>
-    </>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-white/5 bg-black/20 py-4 backdrop-blur-sm">
+        <div className="flex w-max animate-marquee gap-10">
+          {[...marqueeSkills, ...marqueeSkills, ...marqueeSkills, ...marqueeSkills].map(
+            (skill, i) => (
+              <span key={i} className="font-mono text-sm uppercase tracking-widest text-gray-500/70">
+                {skill} <span className="text-[#c6ff2e]/60">✦</span>
+              </span>
+            )
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
-
-
-
-

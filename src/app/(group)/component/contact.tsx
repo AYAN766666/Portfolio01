@@ -40,14 +40,14 @@ export default function Contact() {
   return (
     <section id="contact" className="relative bg-[#050810] py-32 overflow-hidden">
       {/* Background Decorative Elements */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px] -translate-y-1/2"></div>
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#c6ff2e]/5 rounded-full blur-[100px] -translate-y-1/2"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-cyan-400 font-mono tracking-widest uppercase text-sm"
+            className="text-[#c6ff2e] font-mono tracking-widest uppercase text-sm"
           >
             Get In Touch
           </motion.span>
@@ -56,7 +56,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-black text-white mt-4"
           >
-            Let&apos;s Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Future</span>
+            Let&apos;s Build the <span className="text-shine bg-gradient-to-r from-[#c6ff2e] via-[#19f0d0] to-[#ff2ea6]">Future</span>
           </motion.h1>
         </div>
 
@@ -78,7 +78,7 @@ export default function Contact() {
             <div className="grid sm:grid-cols-2 gap-8">
               {[
                 { icon: <FiMail />, title: "Email Me", detail: "aayanu52@gmail.com", href: "mailto:aayanu52@gmail.com" },
-                { icon: <FiPhone />, title: "Phone", detail: "03198130598", href: "tel:03198130598" },
+                { icon: <FiPhone />, title: "Phone", detail: "03711309805", href: "tel:03711309805" },
                 { 
                   icon: <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>, 
                   title: "LinkedIn", 
@@ -88,12 +88,12 @@ export default function Contact() {
                 { icon: <FiMapPin />, title: "Location", detail: "Karachi, Pakistan", href: "#" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-6 group">
-                  <div className="w-14 h-14 rounded-2xl bg-[#161b2a] border border-white/5 flex items-center justify-center text-cyan-400 text-xl group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-[#161b2a] border border-white/5 flex items-center justify-center text-[#c6ff2e] text-xl group-hover:bg-[#c6ff2e] group-hover:text-black transition-all duration-300">
                     {item.icon}
                   </div>
                   <div>
                     <h4 className="text-gray-500 text-sm font-mono uppercase tracking-widest">{item.title}</h4>
-                    <a href={item.href} className="text-white text-lg font-bold hover:text-cyan-400 transition-colors">{item.detail}</a>
+                    <a href={item.href} className="text-white text-lg font-bold hover:text-[#c6ff2e] transition-colors">{item.detail}</a>
                   </div>
                 </div>
               ))}
@@ -116,7 +116,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="bg-[#101624] border border-white/5 p-8 md:p-12 rounded-[3rem] shadow-2xl relative"
           >
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#ff2ea6]/10 rounded-full blur-3xl"></div>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -129,7 +129,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-cyan-500 focus:outline-none transition-colors"
+                    className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-[#c6ff2e] focus:outline-none transition-colors"
                   />
                 </div>
                 <div className="space-y-2">
@@ -141,7 +141,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-cyan-500 focus:outline-none transition-colors"
+                    className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-[#c6ff2e] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="How can I help?"
                   required
-                  className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-cyan-500 focus:outline-none transition-colors"
+                  className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-[#c6ff2e] focus:outline-none transition-colors"
                 />
               </div>
 
@@ -168,14 +168,14 @@ export default function Contact() {
                   placeholder="Tell me about your project..."
                   rows={4}
                   required
-                  className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-cyan-500 focus:outline-none transition-colors resize-none"
+                  className="w-full bg-[#161b2a] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-[#c6ff2e] focus:outline-none transition-colors resize-none"
                 ></textarea>
               </div>
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl flex items-center justify-center gap-3 text-lg shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+                className="w-full py-5 bg-gradient-to-r from-[#c6ff2e] to-[#19f0d0] text-black font-bold rounded-2xl flex items-center justify-center gap-3 text-lg shadow-[0_0_25px_rgba(198,255,46,0.35)]"
               >
                 <span>Send Message</span>
                 <FiSend />
@@ -185,7 +185,7 @@ export default function Contact() {
                 <motion.p 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-cyan-400 text-center font-bold"
+                  className="text-[#c6ff2e] text-center font-bold"
                 >
                   Message Sent Successfully!
                 </motion.p>
