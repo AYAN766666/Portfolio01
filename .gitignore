@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large local media (not needed in the repository)
+/public/Post _ LinkedIn - Google Chrome 2026-05-12 03-59-31.mp4
